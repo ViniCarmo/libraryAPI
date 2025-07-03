@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "autor")
 @Getter
 @Setter
-@NoArgsConstructor
 public class Autor {
 
     @Id
@@ -28,5 +28,8 @@ public class Autor {
 
     @Column(name = "nacionalidade", length = 50, nullable = false)
     private String nacionalidade;
+
+    @OneToMany(mappedBy = "autor")
+    private List<Livro> livros;
 
 }
